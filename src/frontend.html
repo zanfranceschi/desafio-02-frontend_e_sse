@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SSE Tests</title>
+</head>
+<body>
+    <strong>Cotação Ações</strong><br>
+    <ul></ul>
+    <script type="text/javascript">
+
+        const source = new EventSource('/cotacoes');
+
+        const ul = document.querySelector("ul");
+
+        source.onmessage = function (event) {
+
+            let cotacoes = JSON.parse(event.data);
+
+            let content = `${cotacoes[0].timestamp} - `;
+
+            cotacoes.forEach(a => {
+                content += `${a.nome}: ${a.valor} | `;
+            });
+
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(content));
+
+            ul.appendChild(li);
+        };
+
+        source.onopen = function(event) {
+            console.log('onopen');
+        };
+
+        source.onerror = function(event) {
+            console.log('onerror');
+        }
+
+    </script>
+    <!-- Espero que curta o desafio :) -->
+</body>
+</html>
