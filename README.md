@@ -1,5 +1,5 @@
 # Desafio 02: Frontend com SSE – Cotação de Ações
-Esse repositório faz parte do desafio disponível [nessa thread do twitter](https://twitter.com/zanfranceschi/status/1548344242010869763) e também [nesse post de dev.to](https://dev.to/zanfranceschi/desafio-integracao-com-apis-4jco).
+Esse repositório faz parte do desafio disponível [nessa thread do twitter](https://twitter.com/zanfranceschi/status/1550228591652519936) e também [nesse post de dev.to](https://dev.to/zanfranceschi/desafio-frontend-conectar-a-uma-api-para-sse-9ok).
 
 Por favor, note que o código disponível aqui não tem qualidade de produção e não deveria ser usado para referência sobre como desenvolver uma API para SSE.
 
