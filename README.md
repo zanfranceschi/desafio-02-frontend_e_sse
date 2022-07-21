@@ -4,7 +4,7 @@ Esse repositório faz parte do desafio disponível [nessa thread do twitter](htt
 Por favor, note que o código disponível aqui não tem qualidade de produção e não deveria ser usado para referência sobre como desenvolver uma API para SSE.
 
 ## Organização do Repositório
-- A API para consumir os eventos de cotação está disponível em [src](./src).
+- O fonte da API para consumir os eventos de cotação está disponível em [src](./src).
 
 
 ## Material de Apoio
@@ -34,9 +34,7 @@ docker run --rm -p 8080:80 desafio-02-frontend_e_sse
 
 
 ### API de Cotação de Ações
-Os exemplos têm como premissa que você esteja executando o docker na porta 8080.
-
-#### Serviço A
+Os exemplos têm como premissa que você esteja executando o container docker na porta 8080.
 
 Requisição:
 ~~~
