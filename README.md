@@ -62,10 +62,12 @@ Você também pode usar o arquivo [./src/frontend.html](./src/frontend.html) ou 
 
 ## Sugestão de Resolução
 
-Uma sugestão de resolução pode ser encontrada em 
+A imagem seguinte é a minha sugestão de resolução:
 
 ![image](https://user-images.githubusercontent.com/1862567/180513785-b899b256-1691-410d-a566-219fb7504b0a.png)
 
+
+O fonte para essa sugestão de resolução com a biblioteca highcharts está em [./src/frontend-com-grafico.html](./src/frontend-com-grafico.html).
 
 ## Resoluções da Comunidade
 
