@@ -53,6 +53,13 @@ namespace src
             var html = System.IO.File.ReadAllText(@"./frontend.html");
             return base.Content(html, "text/html");
         }
+
+        [HttpGet("/frontend")]
+        public ContentResult Frontend()
+        {
+            var html = System.IO.File.ReadAllText(@"./frontend-com-grafico.html");
+            return base.Content(html, "text/html");
+        }
     }
     public record Acao(DateTime timestamp, Decimal valor, string nome);
 }

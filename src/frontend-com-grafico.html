@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Desafio Cotação Ações</title>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <style>
+        #container {
+            height: 500px;
+            min-width: 310px;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #info {
+            margin: 10px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ações</h1>
+    <div id="info"></div>
+    <div id="container"></div>
+    <script type="text/javascript">
+
+        const source = new EventSource('/cotacoes');
+
+        const info = document.querySelector("#info");
+
+        Highcharts.stockChart('container', {
+            chart: {
+                type: "line",
+                events: {
+                    load() {
+                        let chart = this;
+                        let series = chart.series[0];
+
+                        source.onmessage = function (event) {
+
+                            let cotacoes = JSON.parse(event.data);
+                            info.textContent = "";
+
+                            if (chart.series[0].data.length == 0) {
+                                let i = 0;
+                                cotacoes.forEach(c => {
+                                    chart.series[i].name = c.nome;
+                                    i++;
+                                });
+                            }
+
+                            let shift = chart.series[0].data.length > 100;
+
+                            let i = 0;
+                            cotacoes.forEach(c => {
+                                var series = chart.series[i];
+                                let point = [new Date(c.timestamp).getTime(), c.valor];
+                                series.addPoint(point, true, shift);
+                                info.textContent += `| ${c.nome}: ${c.valor} `;
+                                i++;
+                            });
+
+                            info.textContent = info.textContent.substring(2);
+                            info.textContent = `${info.textContent} @ ${cotacoes[0].timestamp}`;
+                        };
+                    }
+                }
+            },
+            plotOptions: {
+                series: {
+                    compare: 'percent',
+                    showInNavigator: true
+                }
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                valueDecimals: 2,
+                split: true
+            },
+            scrollbar: {
+                enabled: true
+            },
+            navigator: {
+                enabled: true
+            },
+            series: [{
+                name: "A",
+                data: [],
+                marker: {
+                    enabled: true,
+                    radius: 3
+                },
+                shadow: true,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }, {
+                name: "B",
+                data: [],
+                marker: {
+                    enabled: true,
+                    radius: 3
+                },
+                shadow: true,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }, {
+                name: "C",
+                data: [],
+                marker: {
+                    enabled: true,
+                    radius: 3
+                },
+                shadow: true,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }],
+
+        });
+    </script>
+</body>
+</html>
