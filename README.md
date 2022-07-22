@@ -60,6 +60,13 @@ source.onerror = function(event) {
 
 Você também pode usar o arquivo [./src/frontend.html](./src/frontend.html) ou acessar [http://localhost:8080](http://localhost:8080) após ter subido a imagem docker como uma referência.
 
+## Sugestão de Resolução
+
+Uma sugestão de resolução pode ser encontrada em 
+
+![image](https://user-images.githubusercontent.com/1862567/180513785-b899b256-1691-410d-a566-219fb7504b0a.png)
+
+
 ## Resoluções da Comunidade
 
 Abaixo você encontra exemplos de resoluções criados pela comunidade:
