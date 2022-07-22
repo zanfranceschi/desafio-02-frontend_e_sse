@@ -69,6 +69,8 @@ A imagem seguinte é a minha sugestão de resolução:
 
 O fonte para essa sugestão de resolução com a biblioteca highcharts está em [./src/frontend-com-grafico.html](./src/frontend-com-grafico.html).
 
+Também é possível ver o funcionamento dessa página através do container acessando [http://localhost:8080/frontend](http://localhost:8080/frontend)
+
 ## Resoluções da Comunidade
 
 Abaixo você encontra exemplos de resoluções criados pela comunidade:
